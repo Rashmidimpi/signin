@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card inner-main">
+    <div class="card-header">
+      User Profile
+    </div>
+    <div class="card-body">
+      <p class="card-text">Name: <strong>{{UserProfile?.name}}</strong></p>
+      <p class="card-text">Email: <strong>{{UserProfile?.email}}</strong></p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card inner-main">
+    <div class="card-header">
+      User List
+    </div>
+    <div class="card-body" *ngFor="let userlist of UserList">
+      <p class="card-text">Name: <strong>{{userlist.name}}</strong></p>
+      <p class="card-text">Email: <strong>{{userlist.email}}</strong></p>
+      <button (click)="delete(userlist.id)"  class="btn btn-danger" *ngIf="userlist.email == UserProfile?.email" disabled >Delete</button>
+      <button (click)="delete(userlist.id)" class="btn btn-danger" *ngIf="userlist.email != UserProfile?.email"  >Delete</button>
+      &nbsp;
+      <button (click)="update(userlist.id, userlist.name)" class="btn btn-success" >Update Name</button>
+      <hr>
+    </div>
+  </div>
+</div>
+
